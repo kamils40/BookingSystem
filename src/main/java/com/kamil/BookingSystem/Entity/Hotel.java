@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,13 @@ public class Hotel {
     @JsonIgnore
     @OneToMany
     List<Booking> bookings;
+
+    public Hotel(Long id, String name, String location) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        bookings = new ArrayList<>();
+    }
 
     public void addBooking(Booking booking) {
         bookings.add(booking);

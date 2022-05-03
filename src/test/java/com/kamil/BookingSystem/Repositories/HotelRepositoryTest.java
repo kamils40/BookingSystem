@@ -47,7 +47,7 @@ class HotelRepositoryTest {
     }
 
     @Test
-    void ItAlsoShouldntExistsByNaemAndLocation() {
+    void ItAlsoShouldntExistsByNameAndLocation() {
         //given
         Hotel hotel = new Hotel(
                 0L,

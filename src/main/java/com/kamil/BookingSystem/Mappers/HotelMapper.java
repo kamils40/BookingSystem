@@ -14,7 +14,7 @@ public class HotelMapper {
                 .build();
     }
 
-    public static Hotel DTOMapper(HotelDTO hotel) {
+    public static Hotel hotelMapper(HotelDTO hotel) {
         return Hotel.builder()
                 .id(hotel.getId())
                 .bookings(hotel.getBookings())

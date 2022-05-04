@@ -46,6 +46,15 @@ public class BookingService {
         hotelRepository.save(hotel);
         return BookingMapper.DTOMapper(booking);
     }
+
+    @Transactional(readOnly = true)
+    public List<BookingDTO> getAllBookings() {
+        return bookingRepository.findAll()
+                .stream()
+                .map(BookingMapper::DTOMapper)
+                .collect(Collectors.toList());
+    }
+
     @Transactional(readOnly = true)
     public List<BookingDTO> getBookingsOfAClient(Long clientId) {
         return bookingRepository.getAllBookingsOfClient(clientId)
@@ -53,6 +62,7 @@ public class BookingService {
                 .map(BookingMapper::DTOMapper)
                 .collect(Collectors.toList());
     }
+
     @Transactional(readOnly = true)
     public List<BookingDTO> getBookingsOfAHotel(Long hotelId) {
         return bookingRepository.getAllBookingsOfHotel(hotelId)
@@ -60,6 +70,7 @@ public class BookingService {
                 .map(BookingMapper::DTOMapper)
                 .collect(Collectors.toList());
     }
+
     @Transactional
     public BookingDTO removeBooking(Long bookingId) {
         BookingDTO bookingDTO;

@@ -1,8 +1,13 @@
 package com.kamil.BookingSystem.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kamil.BookingSystem.Entity.Booking;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -13,4 +18,6 @@ public class ClientDTO {
     private String name;
     private String surname;
     private String email;
+    @JsonIgnore
+    private List<Booking> bookings = new ArrayList<>();
 }

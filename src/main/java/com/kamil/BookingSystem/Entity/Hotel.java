@@ -23,7 +23,7 @@ public class Hotel {
     String name;
     String location;
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "hotel")
     List<Booking> bookings;
 
     public Hotel(Long id, String name, String location) {

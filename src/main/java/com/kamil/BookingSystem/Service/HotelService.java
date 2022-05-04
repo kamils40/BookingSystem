@@ -44,14 +44,15 @@ public class HotelService {
        return hotelDTO;
     }
     
-    public HotelDTO RemoveHotel(HotelDTO hotelDTO) {
-        if(hotelRepository.selectExistsByNameAndLocation(hotelDTO.getName(), hotelDTO.getLocation())) {
-            hotelRepository.deleteById(hotelDTO.getId());
+    public String removeHotel(Long id) {
+        if(hotelRepository.findById(id).isPresent()) {
+            hotelRepository.deleteById(id);
+            return "Successfully deleted";
         } else {
             throw new HotelDoesntExistsException("Given hotel doesn't exists in database");
         }
-        return hotelDTO;
     }
+
 
 
 }

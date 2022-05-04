@@ -32,7 +32,7 @@ public class Client {
     @Column(unique = true)
     private String email;
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "client")
     private List<Booking> bookings;
 
     public Client(String name, String surname, String email) {

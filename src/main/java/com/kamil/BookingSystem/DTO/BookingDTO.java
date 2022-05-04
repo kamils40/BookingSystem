@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
@@ -18,7 +19,9 @@ import java.time.LocalDate;
 @Data
 public class BookingDTO {
     Long id;
+    @DateTimeFormat (pattern = "yyyy/MM/dd", iso = DateTimeFormat.ISO.DATE)
     LocalDate startsAt;
+    @DateTimeFormat (pattern = "yyyy/MM/dd", iso = DateTimeFormat.ISO.DATE)
     LocalDate endsAt;
     Client client;
     Hotel hotel;
